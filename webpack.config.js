@@ -73,6 +73,7 @@ module.exports = (env = {}) => {
     resolve: {
       alias: {
         vue: resolve(__dirname, './node_modules/vue/dist/vue.esm.js'),
+        phaser: resolve(__dirname, './lib/phaser.custom.js'),
       },
       // Add `.ts` and `.tsx` as a resolvable extension.
       extensions: ['.ts', '.json', '.js'],

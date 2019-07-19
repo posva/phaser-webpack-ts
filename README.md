@@ -4,6 +4,7 @@
 
 - [About](#about)
 - [Getting Started](#getting_started)
+- [Customizing build](#customizing-build)
 
 ## About
 
@@ -31,3 +32,15 @@ You can deploy the `./dist` folder.
 
 - Node
 - yarn
+
+### Customizing build
+
+In order to only include what we need, we provide a custom phaser build located
+at `lib/phaser.custom.js`. If things are not working, you are likely missing one
+of the Plugins. I recommend looking at Phaser source code to see what they add
+to the `Phaser` object and add the same.
+
+A bit more about it:
+
+- https://github.com/photonstorm/phaser3-custom-build
+- https://phaser.io/tutorials/creating-custom-phaser-builds

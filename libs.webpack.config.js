@@ -24,12 +24,15 @@ module.exports = (env = {}) => {
     mode,
     context: process.cwd(),
     resolve: {
+      alias: {
+        '@phaser': path.resolve(__dirname, './node_modules/phaser/src'),
+      },
       extensions: ['.js', '.jsx', '.json', '.less', '.css'],
-      modules: [__dirname, 'node_modules'],
+      modules: [path.resolve(__dirname, 'lib'), 'node_modules'],
     },
 
     entry: {
-      library: ['phaser'],
+      library: ['phaser.custom'],
     },
 
     output: {
