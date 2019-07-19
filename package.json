@@ -3,7 +3,9 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "build": "rimraf dist && webpack --mode=production --env.production",
+    "build": "webpack --mode=production --env.production",
+    "build:dll": "webpack --config libs.webpack.config.js",
+    "prepare": "yarn run build:dll --env.development && yarn run build:dll --env.production",
     "dev": "webpack-dev-server --mode=development"
   },
   "dependencies": {

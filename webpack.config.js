@@ -29,6 +29,7 @@ module.exports = (env = {}) => {
   /** @type {import('webpack').Plugin[]} */
   // @ts-ignore
   const extraPlugins = env.production ? [new LicenseWebpackPlugin()] : []
+  const mode = env.production ? 'production' : 'development'
 
   let { devtool } = env
 
@@ -36,6 +37,7 @@ module.exports = (env = {}) => {
 
   return {
     entry: [resolve(__dirname, 'src/index.ts')],
+    mode,
     devtool,
 
     devServer: {
@@ -77,6 +79,10 @@ module.exports = (env = {}) => {
     },
 
     plugins: [
+      new webpack.DllReferencePlugin({
+        context: __dirname,
+        manifest: require(`./dist/dlls/library.${mode}.json`),
+      }),
       new HtmlWebpackPlugin({
         template: resolve(__dirname, 'index.html'),
       }),
